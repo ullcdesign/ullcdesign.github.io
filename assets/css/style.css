@@ -1,0 +1,1080 @@
+@charset "UTF-8";
+@media screen and (min-width: 1441px) {
+  .__pc {
+    display: block;
+  }
+  .__sp {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .__pc {
+    display: block;
+  }
+  .__sp {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .__pc {
+    display: none;
+  }
+  .__sp {
+    display: block;
+  }
+}
+
+#load {
+  display: flex;
+  background: #111;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+#load .circle {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  animation: rotate linear 1s infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  25% {
+    transform: rotate(90deg);
+    border-bottom: 6px solid #fff;
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(180deg);
+    border-bottom: 1px solid #fff;
+    opacity: 0;
+  }
+  75% {
+    transform: rotate(270deg);
+    border-bottom: 6px solid #fff;
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.loaded {
+  opacity: 0;
+  visibility: hidden;
+  transition: 1s;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  color: #444;
+  font-family: source-han-sans-cjk-ja,"游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "verdana", sans-serif;
+  line-height: 1;
+  font-weight: 300;
+  font-size: 10px;
+}
+
+@media screen and (max-width: 1440px) {
+  html, body {
+    font-size: 8px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  html, body {
+    font-size: 7px;
+  }
+}
+
+html a, body a {
+  text-decoration: none;
+  color: #444;
+}
+
+html a:hover, body a:hover {
+  opacity: 0.5;
+  transition: .5s;
+}
+
+html h2, html h3, html h4, body h2, body h3, body h4 {
+  font-weight: 500;
+  color: #111;
+}
+
+html h3, body h3 {
+  letter-spacing: 0.1rem;
+}
+
+html p, html li, body p, body li {
+  font-size: 1.6rem;
+  line-height: 2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.__en {
+  font-family: neue-kabel, sans-serif;
+}
+
+header {
+  width: 100%;
+  height: 10rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  transition: 1s;
+}
+
+header .headerWrap {
+  height: 100%;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 1440px) {
+  header .headerWrap {
+    width: 90%;
+  }
+}
+
+header .headerWrap h1 {
+  font-size: 4.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+}
+
+header .headerWrap h1 a {
+  color: #fff;
+}
+
+header .headerWrap nav {
+  font-weight: 600;
+}
+
+header .headerWrap nav ul {
+  display: flex;
+  gap: 4rem;
+  letter-spacing: 0.1rem;
+}
+
+header .headerWrap nav ul a {
+  color: #fff;
+}
+
+.scrollHeader {
+  background: #111;
+}
+
+@media screen and (max-width: 767px) {
+  header .headerWrap {
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  header .headerWrap nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    background: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s;
+  }
+  header .headerWrap nav.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  header .headerWrap nav ul {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+  }
+  header .headerWrap nav ul li {
+    font-size: 2.4rem;
+  }
+  header .headerWrap nav ul a {
+    color: #444;
+  }
+  header .headerWrap #toggle {
+    width: 4.8rem;
+    height: 4.8rem;
+    position: fixed;
+    top: 2.6rem;
+    right: 5%;
+    z-index: 9998;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: .5s;
+  }
+  header .headerWrap #toggle:hover {
+    opacity: 0.8;
+  }
+  header .headerWrap #toggle span.line {
+    width: 4.8rem;
+    height: 0.3rem;
+    background: #fff;
+    z-index: 9999;
+    transition: .5s;
+    border-radius: 0.2rem;
+    position: absolute;
+  }
+  header .headerWrap #toggle span.line#line1 {
+    top: 0.7rem;
+  }
+  header .headerWrap #toggle span.line#line1.line1 {
+    transform: rotate(-405deg);
+    top: 2.7rem;
+    background: #444;
+  }
+  header .headerWrap #toggle span.line#line2 {
+    top: 50%;
+  }
+  header .headerWrap #toggle span.line#line2.line2 {
+    opacity: 0;
+    visibility: hidden;
+  }
+  header .headerWrap #toggle span.line#line3 {
+    bottom: 0.4rem;
+  }
+  header .headerWrap #toggle span.line#line3.line3 {
+    transform: rotate(405deg);
+    bottom: 1.8rem;
+    background: #444;
+  }
+}
+
+#headline {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  color: #fff;
+}
+
+#headline #bg {
+  height: 100%;
+  width: 100%;
+}
+
+#headline #bg canvas {
+  animation: bgAnime infinite 10s;
+}
+
+@keyframes bgAnime {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+#headline #copy {
+  margin: 0 auto;
+  z-index: 5;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 10%;
+  mix-blend-mode: difference;
+}
+
+@media screen and (max-width: 1440px) {
+  #headline #copy {
+    margin-left: 5%;
+  }
+}
+
+#headline #copy #mainCopy {
+  line-height: 1.3;
+  font-size: 6.6rem;
+  font-weight: 600;
+  margin-bottom: 3.2rem;
+}
+
+#headline #copy #subCopy {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-left: 0.4rem;
+  letter-spacing: 0.4rem;
+}
+
+main {
+  padding: 5rem 0;
+}
+
+main section {
+  padding: 5rem 0;
+  text-align: center;
+}
+
+main section h2 {
+  font-size: 6rem;
+  margin-bottom: 4rem;
+}
+
+main section h3 {
+  font-size: 2.4rem;
+  margin-bottom: 4rem;
+}
+
+main section p {
+  margin-bottom: 4rem;
+  font-weight: 400;
+}
+
+main section .box a {
+  font-size: 2.4rem;
+  border: 1px solid #111;
+  width: 24rem;
+  height: 8rem;
+  margin: 0 auto;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.2rem;
+}
+
+main section .box a:hover {
+  opacity: 1;
+  background: #111;
+  color: #fff;
+}
+
+footer {
+  background: #111;
+  font-weight: 600;
+  color: #fff;
+}
+
+footer .navArea {
+  height: 36rem;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1440px) {
+  footer .navArea {
+    width: 90%;
+  }
+}
+
+footer .navArea .logoTxt {
+  font-size: 3.6rem;
+  letter-spacing: 0.05rem;
+}
+
+footer .navArea #fNav ul {
+  display: flex;
+  gap: 4rem;
+  letter-spacing: 0.1rem;
+}
+
+footer .navArea #fNav ul li {
+  font-size: 2rem;
+}
+
+footer .navArea #fNav ul a {
+  color: #fff;
+}
+
+footer #copyright {
+  height: 12rem;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+}
+
+@media screen and (max-width: 767px) {
+  footer .navArea {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+  }
+  footer .navArea::after {
+    content: '';
+    border-bottom: #b9b9b9 1px solid;
+    width: 80%;
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #index main section#about {
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
+#index main section#about p {
+  margin-bottom: 0;
+}
+
+#index main section#about p .__en {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+#index main section .worksWrap {
+  display: flex;
+}
+
+#index main section .worksWrap li {
+  width: 50%;
+  position: relative;
+}
+
+#index main section .worksWrap li a:hover {
+  opacity: 1;
+}
+
+#index main section .worksWrap li a:hover img {
+  opacity: 0.5;
+  transition: .5s;
+}
+
+#index main section .worksWrap li:hover .linkTxt {
+  color: #111;
+}
+
+#index main section .worksWrap li img {
+  width: 100%;
+}
+
+#index main section .worksWrap li .linkTxt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4.8rem;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.2rem;
+}
+
+@media screen and (max-width: 767px) {
+  #index main section#me {
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
+#index main section#me h3 {
+  letter-spacing: 0.1rem;
+}
+
+#index main section#me ul {
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+#index main section#me ul:last-child {
+  margin-bottom: 0;
+}
+
+#index main section#me ul.otherList li {
+  line-height: 2;
+}
+
+#index main section#me ul .__en {
+  font-weight: 500;
+}
+
+#index main section#me ul h4 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+
+#index main section#me .wrap .frame {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+#index main section#me .wrap .frame .box {
+  width: 24rem;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: #111 1px solid;
+  margin-bottom: -0.1rem;
+}
+
+#index main section#me .wrap .frame .box.left {
+  background: #111;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+}
+
+@media screen and (max-width: 767px) {
+  #index main section .worksWrap {
+    flex-direction: column;
+  }
+  #index main section .worksWrap li {
+    width: 100%;
+  }
+  #index main section .worksWrap li .linkTxt {
+    font-size: 6.258vw;
+  }
+  #index main section .profileImg {
+    width: 50vw;
+  }
+}
+
+#works header {
+  background: #111;
+}
+
+#works main {
+  padding-top: 12.5rem;
+}
+
+#works main section {
+  padding: 2.5rem 0;
+  margin: 0 auto;
+  width: 80%;
+}
+
+@media screen and (max-width: 1440px) {
+  #works main section {
+    width: 90%;
+  }
+}
+
+#works main section p {
+  margin-bottom: 2.5rem;
+}
+
+#works main section .row {
+  display: flex;
+  justify-content: space-between;
+  transition: .5s;
+}
+
+#works main section .row:first-of-type {
+  margin-bottom: 4rem;
+}
+
+#works main section .row li {
+  width: 25vw;
+}
+
+@media screen and (max-width: 1440px) {
+  #works main section .row li {
+    width: 28vw;
+  }
+}
+
+#works main section .row li img {
+  width: 100%;
+  border: 1px solid #111;
+}
+
+#works main section .row li .title {
+  margin-top: 2rem;
+  text-align: left;
+  font-weight: 500;
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+}
+
+#works main section #web, #works main section #other {
+  padding: 2.5rem 0;
+}
+
+#works main section #web h3, #works main section #other h3 {
+  font-size: 3.6rem;
+}
+
+#works main section #other .row {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+  #works main {
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  #works main section {
+    width: 100%;
+  }
+  #works main section .row {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  #works main section .row:first-of-type {
+    margin-bottom: 2rem;
+  }
+  #works main section .row li {
+    width: 100%;
+  }
+  #works main section .row li .title {
+    text-align: center;
+    font-weight: 500;
+  }
+}
+
+#me header {
+  background: #111;
+}
+
+#me main {
+  padding-top: 12.5rem;
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1440px) {
+  #me main {
+    width: 90%;
+  }
+}
+
+#me main section h2 {
+  letter-spacing: 0.1rem;
+}
+
+#me main section:first-child {
+  padding-top: 2.5rem;
+}
+
+#me main section#profile .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#me main section#profile .wrap .profileImg {
+  width: 36%;
+  height: auto;
+}
+
+#me main section#profile .wrap .profileImg img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+#me main section#profile .wrap .txt {
+  width: 60%;
+  text-align: left;
+}
+
+#me main section#profile .wrap .txt h3 {
+  font-size: 3.2rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.1rem;
+}
+
+#me main section#profile .wrap .txt p {
+  margin-bottom: 2rem;
+}
+
+#me main section#profile .wrap .txt ul {
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+#me main section#profile .wrap .txt ul:last-child {
+  margin-bottom: 0;
+}
+
+#me main section#profile .wrap .txt ul.otherList li {
+  line-height: 2;
+}
+
+#me main section#profile .wrap .txt ul .__en {
+  font-weight: 500;
+}
+
+#me main section#profile .wrap .txt ul h4 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+
+#me main section#like .likeList {
+  display: flex;
+  justify-content: space-between;
+}
+
+#me main section#like .likeList li {
+  text-align: left;
+  width: 25vw;
+}
+
+@media screen and (max-width: 1440px) {
+  #me main section#like .likeList li {
+    width: 28vw;
+  }
+}
+
+#me main section#like .likeList li .img {
+  margin-bottom: 2rem;
+}
+
+#me main section#like .likeList li .img img {
+  width: 100%;
+}
+
+#me main section#like .likeList li h3 {
+  line-height: 1;
+  margin-bottom: 2rem;
+  background: #fff;
+  width: fit-content;
+  position: relative;
+  padding-right: 0.8rem;
+  letter-spacing: 0.1rem;
+}
+
+#me main section#like .likeList li h3::after {
+  content: '';
+  position: absolute;
+  width: 25vw;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border-bottom: 1px solid #444;
+  z-index: -1;
+}
+
+@media screen and (max-width: 1440px) {
+  #me main section#like .likeList li h3::after {
+    width: 28vw;
+  }
+}
+
+#me main section#like .likeList li p {
+  margin: 0;
+}
+
+#me main section#interested .note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#me main section#contact .wrap .frame {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+#me main section#contact .wrap .frame .box {
+  width: 24rem;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: #111 1px solid;
+  margin-bottom: -0.1rem;
+}
+
+#me main section#contact .wrap .frame .box.left {
+  background: #111;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+}
+
+@media screen and (max-width: 767px) {
+  #me main {
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  #me main section#profile .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+  #me main section#profile .wrap .profileImg {
+    width: 100%;
+    height: auto;
+    margin-bottom: 4rem;
+  }
+  #me main section#profile .wrap .txt {
+    width: 100%;
+    text-align: left;
+  }
+  #me main section#profile .wrap .txt ul:last-child {
+    margin-bottom: 0;
+  }
+  #me main section#profile .wrap .txt ul.otherList li {
+    line-height: 2;
+  }
+  #me main section#profile .wrap .txt ul .__en {
+    font-weight: 500;
+  }
+  #me main section#like .likeList {
+    flex-direction: column;
+  }
+  #me main section#like .likeList li {
+    position: relative;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 6rem;
+  }
+  #me main section#like .likeList li:last-child {
+    margin-bottom: 0;
+  }
+  #me main section#like .likeList li h3 {
+    position: absolute;
+    top: -4rem;
+    left: -2rem;
+    padding-right: 0.8rem;
+  }
+  #me main section#like .likeList li h3::before {
+    content: '';
+    position: absolute;
+    height: 13rem;
+    top: 3rem;
+    left: 0.6rem;
+    border-left: 1px solid #444;
+    z-index: -1;
+  }
+  #me main section#like .likeList li h3::after {
+    width: 16rem;
+    z-index: -1;
+  }
+  #me main section#like .likeList li p {
+    margin: 0;
+  }
+  #me main section#like .likeList li .subHead {
+    text-align: right;
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: #b9b9b9;
+    position: relative;
+    right: -2rem;
+    letter-spacing: 0.1rem;
+  }
+  #me main section#like .likeList li .subHead span {
+    width: fit-content;
+    background: #fff;
+    padding-left: 0.8rem;
+  }
+  #me main section#like .likeList li .subHead span::before {
+    content: '';
+    position: absolute;
+    height: 16rem;
+    bottom: 3rem;
+    right: 0.6rem;
+    border-right: 1px solid #b9b9b9;
+    z-index: -1;
+  }
+  #me main section#like .likeList li .subHead span::after {
+    content: '';
+    position: absolute;
+    width: 16rem;
+    bottom: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    border-bottom: 1px solid #b9b9b9;
+    z-index: -1;
+  }
+  #me main section#contact .wrap .frame {
+    flex-direction: column;
+  }
+  #me main section#contact .wrap .frame .box {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+#worksDetail header {
+  background: #111;
+}
+
+#worksDetail main {
+  padding-top: 12.5rem;
+}
+
+#worksDetail main section {
+  margin: 0 auto;
+  width: 80%;
+  padding: 2.5rem 0;
+}
+
+@media screen and (max-width: 1440px) {
+  #worksDetail main section {
+    width: 90%;
+  }
+}
+
+#worksDetail main section h2 {
+  letter-spacing: 0.1rem;
+}
+
+#worksDetail main section .thumb {
+  margin-bottom: 4rem;
+}
+
+#worksDetail main section .thumb img {
+  width: 100%;
+  border: 1px solid #111;
+}
+
+#worksDetail main section p {
+  text-align: left;
+}
+
+#worksDetail main section ul {
+  text-align: left;
+  font-weight: 400;
+  line-height: 2;
+  margin-bottom: 4rem;
+}
+
+#worksDetail main section .mockUp {
+  margin-bottom: 4rem;
+}
+
+#worksDetail main section .mockUp img {
+  width: 100%;
+  border: 1px solid #111;
+}
+
+#worksDetail main section .capture {
+  margin-bottom: 2.083vw;
+}
+
+#worksDetail main section .capture:last-child {
+  margin-bottom: 0;
+}
+
+#worksDetail main section .capture ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+#worksDetail main section .capture ul li {
+  width: 25vw;
+}
+
+@media screen and (max-width: 1440px) {
+  #worksDetail main section .capture ul li {
+    width: 28vw;
+  }
+}
+
+#worksDetail main section .capture ul li img {
+  width: 100%;
+  border: 1px solid #111;
+}
+
+#worksDetail main section .designBase {
+  display: flex;
+  justify-content: space-between;
+}
+
+#worksDetail main section .designBase .design {
+  width: 28.125vw;
+}
+
+#worksDetail main section .designBase .basePic {
+  width: 46.875vw;
+}
+
+#worksDetail main section .designBase img {
+  width: 100%;
+  border: 1px solid #111;
+}
+
+#worksDetail main section .sample img {
+  width: 100%;
+  border: 1px solid #111;
+}
+
+@media screen and (max-width: 767px) {
+  #worksDetail header {
+    background: #111;
+  }
+  #worksDetail main {
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  #worksDetail main section {
+    width: auto;
+  }
+  #worksDetail main section .thumb img {
+    width: 100%;
+  }
+  #worksDetail main section p {
+    text-align: left;
+  }
+  #worksDetail main section ul {
+    text-align: left;
+    font-weight: 400;
+    line-height: 2;
+  }
+  #worksDetail main section .mockUp img {
+    width: 100%;
+  }
+  #worksDetail main section .capture {
+    margin-bottom: 5vw;
+  }
+  #worksDetail main section .capture ul li {
+    width: 26.667vw;
+  }
+  #worksDetail main section .designBase {
+    display: flex;
+    justify-content: space-between;
+  }
+  #worksDetail main section .designBase .design {
+    width: 32vw;
+  }
+  #worksDetail main section .designBase .basePic {
+    width: 53.333vw;
+  }
+}
+/*# sourceMappingURL=style.css.map */
